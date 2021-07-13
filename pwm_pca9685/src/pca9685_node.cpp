@@ -1,19 +1,13 @@
-/* pca9685_i2c_node.cpp
- * Author: Dheera Venkatraman <dheera@dheera.net>
- *
- * Instantiates a PCA9685 Activity class, as well as
- * a Watchdog that causes this node to die if things aren't
- * working.
- */
-
 #include <pwm_pca9685/pca9685_activity.h>
 #include <csignal>
 
-int main(int argc, char *argv[]) {
-    ros::NodeHandle* nh = NULL;
-    ros::NodeHandle* nh_priv = NULL;
-
-    pwm_pca9685::PCA9685Activity* activity = NULL;
+int main (int argc, char **argv)
+{
+	ros::NodeHandle* nh = NULL;
+	ros::NodeHandle* nh_priv = NULL;
+		
+	pwm_pca9685::PCA9685Activity* activity = NULL;
+    ROS_INFO("enter main");
 
     ros::init(argc, argv, "pca9685_node");
 
@@ -61,6 +55,7 @@ int main(int argc, char *argv[]) {
     delete activity;
     delete nh_priv;
     delete nh;
+    
 
     return 0;
 }
